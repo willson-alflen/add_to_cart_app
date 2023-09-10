@@ -41,6 +41,12 @@ onValue(shoppingListInDB, (snapshot) => {
  * LISTENERS AND FUNCTIONS  
  */
 
+inputFieldEl.addEventListener("keypress", (e) => {
+    if (e.key === "Enter") {
+        addButtonEl.click()
+    }
+})
+
 addButtonEl.addEventListener("click", function() {
     let inputValue = inputFieldEl.value.trim()
 
