@@ -54,6 +54,8 @@ addButtonEl.addEventListener("click", function() {
                 } else {
                     push(shoppingListInDB, inputValue)
                 }
+            } else {
+                push(shoppingListInDB, inputValue)
             }
         }, {
             onlyOnce: true
@@ -88,3 +90,7 @@ function appendItemToShoppingListEl(item) {
 
     shoppingListEl.appendChild(listItemEl)
 }
+
+/**
+ * CLEAR ALL LIST
+ */
