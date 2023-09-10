@@ -44,22 +44,23 @@ onValue(shoppingListInDB, (snapshot) => {
 addButtonEl.addEventListener("click", function() {
     let inputValue = inputFieldEl.value.trim()
 
-    onValue(shoppingListInDB, (snapshot) => {
-        if (snapshot.exists()) {
-            let listItemsValues = Object.values(snapshot.val())
-            if (listItemsValues.includes(inputValue)) {
-                alert("This item already exists in your list")
-                return
-            } else {
-                push(shoppingListInDB, inputValue)
+    if (inputValue) {
+        onValue(shoppingListInDB, (snapshot) => {
+            if (snapshot.exists()) {
+                let listItemsValues = Object.values(snapshot.val())
+                if (listItemsValues.includes(inputValue)) {
+                    alert("This item already exists in your list")
+                    return
+                } else {
+                    push(shoppingListInDB, inputValue)
+                }
             }
-        } else {
-            push(shoppingListInDB, inputValue)
-        }
-
-    }, {
-        onlyOnce: true
-    })
+        }, {
+            onlyOnce: true
+        })
+    } else {
+        alert("Please insert an item!")
+    }
   
     clearInputFieldEl()
   })
